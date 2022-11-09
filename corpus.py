@@ -54,32 +54,28 @@ def corpus():
               buffer.append(token)
       textosWeb.append(buffer)
 
-  # Aplicando o NPL nas sentenças
-  doc = []
+  doc1 = []
+  doc2 = []
+  doc3 = []
+  doc4 = []
+  doc5 = []
 
   # Esse for está criando uma matriz com todos os arrays gerados pelo npl
-  for text in textosWeb:
-      for sentence in text:
-          doc.append(nlp(sentence))
-
-  # Tabulando os resultados para melhor visualização
-  cols = (
-          "Texto", 
-          "Lemma", 
-          "POS", 
-          "Explicação",
-          "Stopword"
-         )
-  
-  rows = []
-
-  for t in doc:
-    for j in t:
-      row = [j.text, j.lemma_, j.pos_, spacy.explain(j.pos_), j.is_stop]
-      rows.append(row)
-
-  df = pd.DataFrame(rows, columns=cols)
-
-  print(df.head(75))
+  for i in range(len(textosWeb)):
+    if(i == 0):
+      doc1.append(textosWeb[i])
+      print(doc1)
+    elif(i == 1):
+      doc2.append(textosWeb[i])
+      print(doc2)
+    elif(i == 2):
+      doc3.append(textosWeb[i])
+      print(doc3)
+    elif(i == 3):
+      doc4.append(textosWeb[i])
+      print(doc4)
+    elif(i == 4):
+      doc5.append(textosWeb[i])
+      print(doc5)
 
 corpus()
